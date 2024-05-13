@@ -218,7 +218,7 @@ GEM
       actionpack (>= 3.2.0, < 7.1)
     method_source (1.0.0)
     mini_mime (1.1.5)
-    mini_portile2 (2.8.5)
+    mini_portile2 (2.8.6)
     minitest (5.22.2)
     msgpack (1.7.2)
     multi_json (1.15.0)
@@ -243,7 +243,7 @@ GEM
       net-protocol
     net-ssh (5.0.2)
     nio4r (2.7.0)
-    nokogiri (1.16.2)
+    nokogiri (1.16.5)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     notifications-ruby-client (2.6.0)
