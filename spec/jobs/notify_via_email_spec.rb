@@ -29,7 +29,11 @@ RSpec.describe NotifyViaEmail do
             title: appointment_summary.title,
             last_name: appointment_summary.last_name,
             guider_name: appointment_summary.guider_name,
-            date_of_appointment: appointment_summary.date_of_appointment.to_s(:pw_date_long)
+            date_of_appointment: appointment_summary.date_of_appointment.to_s(:pw_date_long),
+            section_32: 'yes', # rubocop:disable Naming/VariableNumber
+            adjustable_income: 'no',
+            inherited_pot: 'no',
+            fixed_term_annuity: 'no'
           }
         }.to_json
       )
@@ -40,7 +44,7 @@ RSpec.describe NotifyViaEmail do
 
   context 'when the customer does not have a DC pension' do
     let(:appointment_summary) do
-      create(:appointment_summary, :has_defined_benefit_pension)
+      create(:appointment_summary, :has_defined_benefit_pension, covering_letter_type: 'adjustable_income')
     end
 
     it 'sends an eligible email notification' do
@@ -53,7 +57,11 @@ RSpec.describe NotifyViaEmail do
             title: appointment_summary.title,
             last_name: appointment_summary.last_name,
             guider_name: appointment_summary.guider_name,
-            date_of_appointment: appointment_summary.date_of_appointment.to_s(:pw_date_long)
+            date_of_appointment: appointment_summary.date_of_appointment.to_s(:pw_date_long),
+            section_32: 'no', # rubocop:disable Naming/VariableNumber
+            adjustable_income: 'yes',
+            inherited_pot: 'no',
+            fixed_term_annuity: 'no'
           }
         }.to_json
       )
